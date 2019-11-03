@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="daIDvbRJhArqW3Ioc8eB0RJeqfWyF9PAxFdnkL8k">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
-    <title>Kazi Mehedi Hasan - Software Engineer</title>
+    <title>Login to RakibTG.com</title>
 
     <style>
         html {
@@ -22,7 +22,7 @@
     </head>
 <body>
 
-        <header id="main-header">
+    <header id="main-header">
     <div class="header-container">
         <div class="logo-wrapper">
             <a href="index.html"><img src="images/rakibtg.jpg" alt="Photo of rakibtg" class="avatar"></a>
@@ -39,23 +39,47 @@
             <a href="memes.html">?</a>
         </div>
     </div>
-</header>    <div class='header-bio'>
-        <div class="header-bio-container">
-            <h1>Hi, I'm <a href="page/about.html" title="Kazi Mehedi Hasan">Mehedi</a>!</h1>
-            
-            I write code for living, it also happends to be my favorite habit. <br/>
-            Besides, I love to practice creativity and minimalism.
-        </div>
-    </div>
-    <div class='post-lists'>
-                    <div class="container text-center">
-                <h1>No post's yet!</h1>
+</header><div class="login-container">
+    <h3>Well, this might not be the page for you!</h3>
+    <form class="form-login" method="POST" action="login.html">
+
+        <input type="hidden" name="_token" value="daIDvbRJhArqW3Ioc8eB0RJeqfWyF9PAxFdnkL8k">
+
+        <div class="form-group">
+            <label for="email" class="col-md-4 control-label">Username</label>
+
+            <div class="col-md-6">
+                <input id="email" type="email" class="form-control" name="email" value="" required autofocus>
             </div>
-                <div class='posts-snippets-wrapper'>
-                    </div>
-        <section class="navigation">
-                                </section>
-    </div>
+        </div>
+
+        <div class="form-group">
+            <label for="password" class="col-md-4 control-label">Password</label>
+
+            <div class="col-md-6">
+                <input id="password" type="password" class="form-control" name="password" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-6 col-md-offset-4">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="remember" > Remember Me
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-8 col-md-offset-4">
+                <button type="submit" class="btn btn-primary">
+                    Login
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
 
     <script src="js/app.js"></script>
 
