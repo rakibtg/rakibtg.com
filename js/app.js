@@ -33,6 +33,7 @@ function programmaticNavigation(link) {
       history.pushState({}, pageDom.title, link);
       history.replaceState({}, pageDom.title, link);
       window.scrollTo({ top: 0, behavior: "smooth" });
+      loadImages();
     })
     .catch(error => {
       console.log(error);
@@ -54,6 +55,17 @@ function clickHandler(e) {
     e.preventDefault();
     programmaticNavigation(a.href);
   }
+}
+
+function loadImages() {
+  var _img = document.querySelectorAll("img");
+  _img.forEach(i => {
+    const newImg = new Image();
+    newImg.onload = function() {
+      i.src = this.src;
+    };
+    newImg.src = i.src;
+  });
 }
 
 window.onpopstate = function(event) {
