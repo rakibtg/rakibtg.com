@@ -23,17 +23,22 @@ function programmaticNavigation(link) {
   axios
     .get(link)
     .then(res => {
-      const pageDom = new DOMParser().parseFromString(res.data, "text/html");
-      document.body.innerHTML = pageDom.body.innerHTML;
-      document.body.style.opacity = 1;
-      document.body.style.transform = "none";
-      document.body.style.pointerEvents = "auto";
-      document.title = pageDom.title;
-      hydrateContent();
-      history.pushState({}, pageDom.title, link);
-      history.replaceState({}, pageDom.title, link);
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      loadImages();
+      function reRender() {
+        const pageDom = new DOMParser().parseFromString(res.data, "text/html");
+        document.body.innerHTML = pageDom.body.innerHTML;
+        document.body.style.opacity = 1;
+        document.body.style.transform = "none";
+        document.body.style.pointerEvents = "auto";
+        document.title = pageDom.title;
+        hydrateContent();
+        history.pushState({}, pageDom.title, link);
+        history.replaceState({}, pageDom.title, link);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        loadImages();
+      }
+      setTimeout(() => {
+        reRender();
+      }, 500);
     })
     .catch(error => {
       console.log(error);
