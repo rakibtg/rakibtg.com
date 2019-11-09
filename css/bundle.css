@@ -969,18 +969,6 @@ header#main-header div.logo-wrapper:hover .bubble {
   opacity: 1;
   display: block;
 }
-header#main-header div.logo-wrapper img.unicorn {
-  width: 45px;
-  z-index: -1;
-  transform: translateX(-50px) rotate(30deg);
-  transition: transform .1s;
-  opacity: 0;
-}
-header#main-header div.logo-wrapper:hover img.unicorn {
-  transform: translateX(-60px) translateY(-5px) rotate(0deg);
-  opacity: 1;
-
-}
 header#main-header div.logo-wrapper div {
   font-size: 14px;
   margin: 0px 10px;
