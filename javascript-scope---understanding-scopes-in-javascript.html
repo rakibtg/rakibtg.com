@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="EahHtVsSPwT09m5tflp0mUVUlohqzM63eQkGPhsI">
+    <title>JavaScript Scope - Understanding Scopes In JavaScript</title>
+    <!-- Styles -->
+    <script src="js/axios.min.js"></script>
+    <link href="css/bundle.css" rel="stylesheet">
+    
+            <meta name='description' content='Understanding JavaScript Scope and the use of scope in JavaScript with code examples. Here we will also discuss about different types of scope like - global scope, local scope, block scope, function scope, lexical scope and private and public scope.'>
+        <meta property='og:type' content='article' />
+        <meta property='og:title' content='JavaScript Scope - Understanding Scopes In JavaScript' />
+        <meta property='og:description' content='Understanding JavaScript Scope and the use of scope in JavaScript with code examples. Here we will also discuss about different types of scope like - global scope, local scope, block scope, function scope, lexical scope and private and public scope.' />
+                                                <meta property='og:image' content='/post/rakibtg_5dc6656f9900b_1573283183.jpg' />
+                <meta name='twitter:image' content='/post/rakibtg_5dc6656f9900b_1573283183.jpg'>
+                            <meta property='og:site_name' content='RakibTG.com' />
+        <meta name='twitter:title' content='JavaScript Scope - Understanding Scopes In JavaScript'>
+        <meta name='twitter:description' content='Understanding JavaScript Scope and the use of scope in JavaScript with code examples. Here we will also discuss about different types of scope like - global scope, local scope, block scope, function scope, lexical scope and private and public scope.'>
+        <meta name='twitter:site' content='@rakibtg'>
+        <meta name='twitter:creator' content='@rakibtg'>
+    </head>
+<body>
+
+        <header id="main-header">
+    <div class="header-container">
+        <div class="logo-wrapper">
+            <a href="index.html"><img src="images/rakibtg.jpg" alt="Photo of rakibtg" class="avatar"></a>
+            <div class="bubble">
+                hello!
+            </div>
+            <!-- <img src="/images/unicorn.png" alt="" class="unicorn"> -->
+        </div>
+        <div class="menu">
+            
+            <a href="index.html">Home</a>
+            <a href="page/about.html">About Me</a>
+            <a href="topics.html">Topics</a>
+            <a href="memes.html">?</a>
+        </div>
+    </div>
+</header>    <div class='post-view'>
+                    <section class="post-header">
+                <div class="padding-left"></div>
+                <div class="post-intro">
+                    <div class="category">
+                        <a href="topic/programming-fundamentals.html">Programming Fundamentals</a>
+                        <span class="bull">&bull;</span>
+                        <span class="datetime">Aug 6, 2018</span>
+                    </div>
+                    <div class="title"><a href="javascript-scope---understanding-scopes-in-javascript.html">JavaScript Scope - Understanding Scopes In JavaScript</a></div>
+                    <div class="author">
+                        By <a href="https://twitter.com/rakibtg">Kazi Mehedi Hasan</a>
+                    </div>
+                                            <div class="post-tags">
+                                                            <a href="tag/javascript.html">#Javascript</a>
+                                                            <a href="tag/node.html">#Node</a>
+                                                    </div>
+                                    </div>
+                <div class="post-thumb">
+                    <img src="storage/post/rakibtg_5dc6656f9900b_1573283183.jpg" alt="">
+                </div>
+            </section>
+        
+        
+        <article class="main"><p>Not only for JavaScript but “scope” is a crucial fundamental concept towards any programming language. In JavaScript world we have separate books written only to understand the possibilities of using scopes! Because this fundamental concepts of scope are highly coupled towards understanding more complex design oriented concepts in JavaScript. If you are a JavaScript developer and do not understand scopes then take the time to read this article, it will help you to make your code more readable, isolated and maintainable.</p><p><br></p><p><strong>Story time!</strong></p><p>If you are walking on a road then you can get a car, in another scenario if you are floating in the space you might expect for a space rocket to help you land safe. We can’t expect a car in the space because it’s obvious that the car can’t fly. 🤔</p><p>If I now ask you what’s the scope of the car and the space rocket, your answers might be similar to this</p><ul><li>The scope of a car is the road</li><li>The scope of a space rocket is the space</li></ul><p>It seems like that your answers are correct and makes sense!&nbsp;</p><p><br></p><h1>What is a scope in JavaScript?</h1><p>Similarly, in JavaScript world we have variables that has access or might not have access at all in some particular part of your code. That means we use the concepts of scope in our code to control the availability of a variable that can contain a function, object or any value!&nbsp;</p><p><br></p><h3>What are the available types of scope in JavaScript?</h3><p>When JavaScript was young and Internet Explorer was dominating in that age it used to have only two types of scope, which are</p><p>1. Global Scope</p><p>2. Functional Scope</p><p>But modern JavaScript has few more types of Scope, let’s discuss about them with code examples.</p><h3><br></h3><h1>Global Scope</h1><p>Like most other languages JavaScript also has one global scope.&nbsp;</p><p>When we declare a variable which is not inside any function, class or block, it means that the variable is inside a global scope.&nbsp;</p><p>While defining a global variable for the global scope we may use the `var` keyword for a variable. Although keep in mind that using global scope is not recommended so if possible it’s better to avoid use of global variables.</p><p>Example Code</p><pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">var</span> name = <span class="hljs-string">"Foo Bar"</span>
+
+<span class="hljs-comment">// Block</span>
+{
+&nbsp; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'From Block:'</span>, name)
+}
+
+<span class="hljs-comment">// Function</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">displayName</span>() </span>{
+&nbsp; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'From Function:'</span>, name)
+}
+displayName()
+
+<span class="hljs-comment">// Class</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> </span>{
+&nbsp; name() {
+&nbsp; &nbsp; <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'From Class:'</span>, name)
+&nbsp; }
+}
+(<span class="hljs-keyword">new</span> Person()).name()
+</pre><p>Output</p><p><img src="storage/post/rakibtg_5dc65fff46012_1573281791.jpg"></p><p>From the above code example you may have noticed that we have declared the <u>name</u> variable inside the global scope(outside of any function, class or block). As a result the&nbsp;<u>name</u> variable is accessible inside the block, inside the function called <u>displayName()</u> and as well as from the instantiated object of the <u>Person</u> class.&nbsp;</p><p><br></p><h1>Local Scope</h1><p>Variables that we define within a particular part of the code which is also only accessible from within that part of the code is the local scope. This variables within this area are also known as local variables. In JavaScript there is two types of local scope,&nbsp;</p><p>1. Block Scope</p><p>2. Function Scope</p><p><br></p><h1>Block Scope</h1><p>In general when you write some code within <u>{}</u> curly braces, that is a code block in JavaScript.&nbsp;</p><p>We can define variables to be used within a block only using the keywords available in modern JavaScript. Which are <u>let</u> and <u>const</u> keywords.</p><p>While intentionally writing a block scoped code, make sure that you are not defining variables with <u>var</u> keyword as thus variables will be accessible in the global scope.</p><p>Example Code</p><pre class="ql-syntax" spellcheck="false">{
+&nbsp; <span class="hljs-keyword">const</span> NAME = <span class="hljs-string">"Foo Bar"</span>
+&nbsp; <span class="hljs-keyword">let</span> age = <span class="hljs-number">18</span>
+&nbsp; <span class="hljs-built_in">console</span>.log(NAME, age)
+}
+
+<span class="hljs-built_in">console</span>.log(NAME, age)
+</pre><p>In the above code we have defined name using <u>const</u> keyword because the name might not need to be modified and for the age we are using <u>let</u> as it might be updated each year.</p><p>First <u>console.log</u>&nbsp;within the block will output</p><p>Output</p><p><img src="storage/post/rakibtg_5dc6611503c36_1573282069.jpg"></p><p>But the second <u>console.log</u> will throw an error,</p><blockquote><code>Uncaught ReferenceError: NAME is not defined</code></blockquote><p>Because this variables are only available within this block and has no existence outside the block.</p><p><br></p><h1>Function Scope</h1><p>If you define a variable within a function, that variable will available only within that function. This is the scope of a function or otherwise function scope.&nbsp;</p><p>In function scope you can define variables with `var`, `let` or `const` keywords.</p><p>Example Code</p><pre class="ql-syntax" spellcheck="false"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">name</span> () </span>{
+&nbsp; <span class="hljs-keyword">var</span> fullName = <span class="hljs-string">"Foo Bar"</span>
+&nbsp; <span class="hljs-keyword">let</span> firstName = <span class="hljs-string">"Foo"</span>
+&nbsp; <span class="hljs-keyword">const</span> lastName = <span class="hljs-string">"Bar"</span>
+&nbsp; <span class="hljs-built_in">console</span>.log(fullName, firstName, lastName)
+}
+
+name()
+</pre><p>Output</p><p><img src="storage/post/rakibtg_5dc661dab72cc_1573282266.jpg"></p><p>If you <u>console.log(fullName, firstName, lastName)</u> outside of the function it will throw error:</p><blockquote>Error: Uncaught ReferenceError: fullName is not defined on line ..</blockquote><p>What if we have similar variables outside the function block?</p><p>Here is the example code for that</p><pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">var</span> fullName = <span class="hljs-string">"Baz Pop"</span>
+<span class="hljs-keyword">let</span> firstName = <span class="hljs-string">"Baz"</span>
+<span class="hljs-keyword">const</span> lastName = <span class="hljs-string">"Pop"</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">name</span> () </span>{
+&nbsp; <span class="hljs-keyword">var</span> fullName = <span class="hljs-string">"Foo Bar"</span>
+&nbsp; <span class="hljs-keyword">let</span> firstName = <span class="hljs-string">"Foo"</span>
+&nbsp; <span class="hljs-keyword">const</span> lastName = <span class="hljs-string">"Bar"</span>
+&nbsp; <span class="hljs-built_in">console</span>.log(fullName, firstName, lastName)
+}
+name()
+<span class="hljs-built_in">console</span>.log(fullName, firstName, lastName)
+</pre><p>It will output</p><p><img src="storage/post/rakibtg_5dc6625d36398_1573282397.jpg"></p><p>Notice that, although the variables have same name in global scope and in function scope but they can remain isolated among them. Be careful, because if you remove the variable definitions from the function scope they will consume the variables from the global scope instead!</p><p><br></p><h1>Lexical Scope</h1><p>Lexical scope, otherwise known as Static Scope implies to a group of nested functions where the child function has access to the variables defined in their parent scope.</p><p>One important thing to note that, in a lexically bound scope the parent functions will be unable to access the values within its child functions.</p><p>Example Code</p><pre class="ql-syntax" spellcheck="false"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fullName</span>() </span>{
+&nbsp; <span class="hljs-keyword">const</span> firstName = <span class="hljs-string">"Foo"</span>
+&nbsp; <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">printName</span>() </span>{
+&nbsp; &nbsp; <span class="hljs-keyword">const</span> lastName = <span class="hljs-string">"Bar"</span>
+&nbsp; &nbsp; <span class="hljs-built_in">console</span>.log(firstName, lastName)
+&nbsp; }
+&nbsp; printName()
+}
+
+fullName()
+</pre><p>Output</p><p><img src="storage/post/rakibtg_5dc662b6c7eb5_1573282486.jpg"></p><p>In the above code the parent function called <u>fullName()</u> and its children function called the <u>printName()</u>. Notice that the child function is able to access the value of the variable <u>firstName</u> defined within the parent function’s scope.</p><p><br></p><p><strong>Using the above understanding of scopes can you implement a public and private scope variables and functions in JavaScript?</strong></p><p>Well, first of all what is a public and private scope?</p><p>If you have some ideas about other languages like Java, Python or PHP they all have something similar to public scope and private scope.</p><p>A pseudo code will look like this,</p><pre class="ql-syntax" spellcheck="false"><span class="hljs-comment">// Public properties</span>
+<span class="hljs-keyword">public</span> name
+<span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fullName</span><span class="hljs-params">()</span> </span>{
+&nbsp; ...
+}
+<span class="hljs-comment">// Private properties</span>
+<span class="hljs-keyword">private</span> email
+<span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setEmail</span><span class="hljs-params">()</span> </span>{
+&nbsp; ...
+}
+</pre><p><br></p><h2>Let’s implement public scope and private scope in JavaScript!</h2><pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> User = <span class="hljs-function"><span class="hljs-keyword">function</span> () </span>{
+&nbsp; <span class="hljs-keyword">let</span> firstName
+&nbsp; <span class="hljs-keyword">let</span> lastName
+&nbsp; <span class="hljs-keyword">const</span> displayUserName = <span class="hljs-function"><span class="hljs-keyword">function</span> () </span>{
+&nbsp; &nbsp; <span class="hljs-built_in">console</span>.log(firstName, lastName)
+&nbsp; }
+&nbsp; <span class="hljs-keyword">const</span> setName = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">first, last</span>) </span>{
+&nbsp; &nbsp; firstName = first
+&nbsp; &nbsp; lastName = last
+&nbsp; &nbsp; displayUserName()
+&nbsp; }
+&nbsp; <span class="hljs-keyword">return</span> {
+&nbsp; &nbsp; setName
+&nbsp; }
+}
+
+User().setName(<span class="hljs-string">"Foo"</span>, <span class="hljs-string">"Bar"</span>)
+</pre><p>Here, the <u>firstName</u>, <u>lastName</u> variables and the <u>displayUserName()</u>&nbsp;function is private but the <u>setName()</u> function is public. They all have access to its parents functions scope, in other word its outer functions scope. So, if we have only access the function call of <u>User</u> then we can’t access or modify the value of <u>firstName</u>, <u>lastName</u> and <u>displayUserName</u> properties, but only has access to the <u>setName</u> function as expected.</p><p><br></p><p>Follow me on twitter @rakibtg and let me know if you have any thoughts on this article.</p></article>
+
+        <section class="navigation">
+                                </section>
+
+    </div>
+
+    <script src="js/app.js"></script>
+
+    
+            <footer class="site-footer">
+  <h4>All thoughts and posts are my own!</h4>
+  <p>
+  Feel free to <a href="page/about.html">contact</a> or tweet me <a target="_blank" href=https://twitter.com/@rakibtg>@rakibtg</a> me! &sdot; 
+          <a href="login.html">Login</a>
+    </p>
+  <p><span class="copy-icon">&copy;</span> 2019 - rakibtg.com all rights reserved.</p>
+</footer>    
+</body>
+</html>
