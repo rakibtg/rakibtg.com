@@ -34,7 +34,7 @@ function programmaticNavigation(link) {
         window.scrollTo({ top: 0, behavior: "smooth" });
         loadImages();
         window.changeMeme && window.changeMeme();
-        if (window.location.pathname === "/memes") {
+        if (window.location.pathname === "/memes.html") {
           loadScript("/js/memes.js");
         }
       }
