@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="3cqlLpGrkaeN2U65GjatXbPUWnOXsjMI4p949jJo">
+    <title>How to Create Cross Platform Executable in Python</title>
+    <!-- Styles -->
+    <!-- <script src="http://localhost:7200/js/axios.min.js"></script> -->
+    <link href="css/bundle.css" rel="stylesheet">
+    
+        <meta name='description' content='How to convert Python scripts into standalone executables suitable for Windows, macOS, Linux, and more. List of top tools and methods for cross-platform Python software standalone executable distributions.'>
+    <meta property='og:type' content='article' />
+    <meta property='og:title' content='How to Create Cross Platform Executable in Python' />
+    <meta property='og:description' content='How to convert Python scripts into standalone executables suitable for Windows, macOS, Linux, and more. List of top tools and methods for cross-platform Python software standalone executable distributions.' />
+            
+    <meta property='og:image' content='https://rakibtg.com/storage/post/rakibtg_6526893f47267_1697024319.jpg' />
+    <meta name='twitter:image' content='https://rakibtg.com/storage/post/rakibtg_6526893f47267_1697024319.jpg'>
+            <meta property='og:site_name' content='RakibTG.com' />
+    <meta name='twitter:title' content='How to Create Cross Platform Executable in Python'>
+    <meta name='twitter:description' content='How to convert Python scripts into standalone executables suitable for Windows, macOS, Linux, and more. List of top tools and methods for cross-platform Python software standalone executable distributions.'>
+    <meta name='twitter:site' content='@rakibtg'>
+    <meta name='twitter:creator' content='@rakibtg'>
+    </head>
+
+<body>
+
+        <header id="main-header">
+    <div class="header-container">
+        <div class="logo-wrapper">
+            <a href="index.html"><img src="images/rakibtg.jpg" alt="Photo of rakibtg" class="avatar"></a>
+            <div class="bubble">
+                hello!
+            </div>
+        </div>
+        <div class="menu">
+
+            <a href="index.html">Home</a>
+            <a href="page/about.html">About Me</a>
+            <a href="topics.html">Topics</a>
+            <a href="memes.html">?</a>
+        </div>
+    </div>
+</header>    <div class='post-view'>
+                    <section class="post-header">
+                <div class="padding-left"></div>
+                <div class="post-intro">
+                    <div class="category">
+                        <a href="topic/software-development.html">Software Development</a>
+                        <span class="bull">&bull;</span>
+                        <span class="datetime">Aug 6, 2018</span>
+                    </div>
+                    <div class="title"><a href="how-to-create-cross-platform-executable-in-python.html">How to Create Cross Platform Executable in Python</a></div>
+                    <div class="author">
+                        By <a href="https://twitter.com/rakibtg">Kazi Mehedi Hasan</a>
+                    </div>
+                                            <div class="post-tags">
+                                                            <a href="tag/software-development.html">#Software Development</a>
+                                                            <a href="tag/python-executables.html">#Python Executables</a>
+                                                            <a href="tag/python.html">#Python</a>
+                                                    </div>
+                                    </div>
+                <div class="post-thumb">
+                    <img src="storage/post/rakibtg_6526893f47267_1697024319.jpg" alt="">
+                </div>
+            </section>
+        
+        
+        <article class="main"><p>In the ever-evolving world of software development, the ability to deploy applications across multiple operating systems without rewriting code is an invaluable asset. Python, a universally admired language for its simplicity and versatility, is no exception to this demand. But how can a developer transform a Python script, inherently platform-independent, into a standalone executable suitable for Windows, macOS, Linux, and beyond? Fortunately, several tools have risen to the occasion, bridging the gap between cross-platform coding and efficient software distribution. This article dives into some of the available solutions to create Python executables.</p><p><br></p><p>Creating a cross-platform executable from Python code means generating executables for different operating systems (e.g., Windows, macOS, Linux) from a single codebase. There are several tools available that can help with this. The best method often depends on the specifics of your project, but I'll introduce some of the most popular tools:</p><p><br></p><h2>PyInstaller</h2><p><br></p><p>PyInstaller reads a Python script, and it can generate a standalone executable for Windows, macOS, or Linux.</p><p><strong>Installation:</strong> <span style="color: rgb(255, 153, 0);">pip install pyinstaller</span></p><p><strong>Usage:</strong> <span style="color: rgb(255, 153, 0);">pyinstaller --onefile your_script.py</span></p><p><strong>Cross-Compilation:</strong> For a true cross-platform build, you'll need to run PyInstaller on each target platform or use something like a virtual machine or Docker. PyInstaller does not support cross-compilation (e.g., building a Windows executable from Linux).</p><p><br></p><h2>cx_Freeze</h2><p><br></p><p>cx_Freeze is a set of scripts and modules that freezes Python scripts into executables.</p><p><strong>Installation:</strong> <span style="color: rgb(255, 153, 0);">pip install cx_Freeze</span></p><p><strong>Usage:</strong> First, create a setup.py script for your project:</p><p><br></p><pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">from</span> cx_Freeze <span class="hljs-keyword">import</span> setup, Executable
+
+
+setup(
+&nbsp; &nbsp; name=<span class="hljs-string">"YourAppName"</span>,
+&nbsp; &nbsp; version=<span class="hljs-string">"0.1"</span>,
+&nbsp; &nbsp; description=<span class="hljs-string">"Your app description"</span>,
+&nbsp; &nbsp; executables=[Executable(<span class="hljs-string">"your_script.py"</span>)]
+)
+</pre><p><br></p><p>Usage: <span style="color: rgb(255, 153, 0);">python setup.py build</span></p><p>The executable will be in the build directory.</p><p><br></p><h2>Nuitka</h2><p><br></p><p>Nuitka is more of a Python compiler than a freezer. It translates Python code into C and then compiles the C code into an executable.</p><p><strong>Installation:</strong> <span style="color: rgb(255, 153, 0);">pip install nuitka</span></p><p><strong>Usage:</strong> <span style="color: rgb(255, 153, 0);">nuitka --onefile your_script.py</span></p><p><strong>Cross-Compilation:</strong> Nuitka supports cross-compilation, but it's a bit involved. You'll need the appropriate cross-compilers for the target platform.</p><p><br></p><h2>PyOxidizer</h2><p><br></p><p>PyOxidizer is a modern utility that works by embedding a Python interpreter into your app, resulting in a single binary. It's designed to be more efficient and offers advanced features.</p><p><strong>Installation &amp; Usage:</strong> Detailed in its documentation. PyOxidizer requires Rust, as it's built on top of it. PyOxidizer's workflow is more involved because it's based on Rust and its configuration is done via a TOML file.</p><p><br></p><p><strong>Installation:</strong> Install Rust and then: <span style="color: rgb(255, 153, 0);">cargo install pyoxidizer</span></p><p><br></p><p>Usage: Start a new project:</p><pre class="ql-syntax" spellcheck="false"><span class="hljs-attribute">pyoxidizer</span> init my_project
+</pre><p>Modify the default pyoxidizer.bzl configuration to fit your needs. Then, to build:</p><pre class="ql-syntax" spellcheck="false"><span class="hljs-built_in">cd</span> my_project
+pyoxidizer build
+</pre><p><br></p><p>Check PyOxidizer's documentation for a detailed configuration.</p><p><br></p><h2>BeeWare's Briefcase</h2><p><br></p><p>Part of the BeeWare suite, Briefcase is a tool for converting a Python project into standalone native applications.</p><p><strong>Installation:</strong> <span style="color: rgb(255, 153, 0);">pip install briefcase</span></p><p><strong>Usage:</strong> Start a new project:</p><p><br></p><pre class="ql-syntax" spellcheck="false">briefcase <span class="hljs-keyword">new</span>
+</pre><p>Follow the prompts to set up your project. Then, to create the executable:</p><pre class="ql-syntax" spellcheck="false"><span class="hljs-attribute">briefcase</span> build
+</pre><p>And to package it:</p><pre class="ql-syntax" spellcheck="false">briefcase <span class="hljs-keyword">package</span>
+</pre><p>The executable will be in the platform-specific directory, like macOS or windows.</p><p><br></p><p>If you're looking for simplicity and quick results, start with PyInstaller. It's popular, well-documented, and many developers find it meets their needs.</p><p><br></p><p>For more advanced features, or if you're building a larger application that might benefit from a more integrated solution, consider PyOxidizer or Nuitka.</p></article>
+
+        <section class="navigation">
+                                        <a class="paginator article-nav-footer" href="javascript-scope-understanding-scopes-in-javascript.html">
+                    <span>JavaScript Scope - Understanding Scopes In JavaScript</span>
+                    <img src="images/next.svg"/>
+                </a>
+                    </section>
+
+    </div>
+
+    <script src="js/app.js" async></script>
+
+    
+        <footer class="site-footer">
+  <h4>All thoughts and posts are my own!</h4>
+  <p>
+  Feel free to <a href="page/about.html">contact</a> or tweet me <a target="_blank" href=https://twitter.com/@rakibtg>@rakibtg</a> me! &sdot; 
+          <a href="login.html">Login</a>
+    </p>
+  <p><span class="copy-icon">&copy;</span> 2023 - rakibtg.com all rights reserved.</p>
+</footer>    
+</body>
+
+</html>
