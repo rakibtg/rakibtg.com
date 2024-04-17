@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="2zapk98qgxdUAw0bKs4vemQbydy3NzyyCqvqiv80">
+    <title>Returning Multiple Elements in JSX</title>
+    <!-- Styles -->
+    <!-- <script src="http://localhost:7200/js/axios.min.js"></script> -->
+    <link href="css/bundle.css" rel="stylesheet">
+    
+        <meta name='description' content='How to return multiple elements in JSX. There are in total five different things you need to know about returning multiple elements in JSX with code examples.'>
+    <meta property='og:type' content='article' />
+    <meta property='og:title' content='Returning Multiple Elements in JSX' />
+    <meta property='og:description' content='How to return multiple elements in JSX. There are in total five different things you need to know about returning multiple elements in JSX with code examples.' />
+            
+    <meta property='og:image' content='https://rakibtg.com/storage/post/rakibtg_66204350bbbaa_1713390416.jpg' />
+    <meta name='twitter:image' content='https://rakibtg.com/storage/post/rakibtg_66204350bbbaa_1713390416.jpg'>
+            <meta property='og:site_name' content='RakibTG.com' />
+    <meta name='twitter:title' content='Returning Multiple Elements in JSX'>
+    <meta name='twitter:description' content='How to return multiple elements in JSX. There are in total five different things you need to know about returning multiple elements in JSX with code examples.'>
+    <meta name='twitter:site' content='@rakibtg'>
+    <meta name='twitter:creator' content='@rakibtg'>
+    </head>
+
+<body>
+
+        <header id="main-header">
+    <div class="header-container">
+        <div class="logo-wrapper">
+            <a href="index.html"><img src="images/rakibtg.jpg" alt="Photo of rakibtg" class="avatar"></a>
+            <div class="bubble">
+                hello!
+            </div>
+        </div>
+        <div class="menu">
+
+            <a href="index.html">Home</a>
+            <a href="page/about.html">About Me</a>
+            <a href="topics.html">Topics</a>
+            <a href="memes.html">?</a>
+        </div>
+    </div>
+</header>    <div class='post-view'>
+                    <section class="post-header">
+                <div class="padding-left"></div>
+                <div class="post-intro">
+                    <div class="category">
+                        <a href="topic/web-development.html">Web Development</a>
+                        <span class="bull">&bull;</span>
+                        <span class="datetime">Aug 6, 2018</span>
+                    </div>
+                    <div class="title"><a href="returning-multiple-elements-in-jsx.html">Returning Multiple Elements in JSX</a></div>
+                    <div class="author">
+                        By <a href="https://twitter.com/rakibtg">Kazi Mehedi Hasan</a>
+                    </div>
+                                            <div class="post-tags">
+                                                            <a href="tag/react.html">#React</a>
+                                                            <a href="tag/react-native.html">#React Native</a>
+                                                            <a href="tag/frontend.html">#Frontend</a>
+                                                    </div>
+                                    </div>
+                <div class="post-thumb">
+                    <img src="storage/post/rakibtg_66204350bbbaa_1713390416.jpg" alt="">
+                </div>
+            </section>
+        
+        
+        <article class="main"><p>JSX is a syntax extension for JavaScript that is commonly used with React to describe what the UI should look like. When building applications in React, developers often face the need to return multiple elements from a component. This guide provides a comprehensive overview of how to return multiple elements in JSX, complete with examples and best practices.</p><p><br></p><h2>Returning Multiple Elements from a Component</h2><p><br></p><p><strong style="color: rgb(255, 255, 0);">1.</strong><strong> Using Fragment </strong><strong style="color: rgb(255, 194, 102);">&lt;&gt;&lt;/&gt;</strong></p><p>A common and simple way to return multiple elements in JSX without adding extra nodes to the DOM is by using React Fragments. Fragments let you group a list of children without adding extra nodes to the DOM.</p><p><br></p><p>Example:</p><pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">App</span>() </span>{
+&nbsp; <span class="hljs-keyword">return</span> (
+&nbsp; &nbsp; <span class="hljs-tag">&lt;&gt;</span>
+&nbsp; &nbsp; &nbsp; <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Hello, world!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+&nbsp; &nbsp; &nbsp; <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Welcome to my app.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+&nbsp; &nbsp; <span class="hljs-tag">&lt;/&gt;</span>
+&nbsp; );
+}
+</pre><p><br></p><p>This code snippet wraps multiple elements in <span style="color: rgb(255, 153, 0);">&lt;&gt;</span>...<span style="color: rgb(255, 153, 0);">&lt;/&gt;</span>, which is a shorthand syntax for <span style="color: rgb(255, 153, 0);">&lt;React.Fragment&gt;</span>...<span style="color: rgb(255, 153, 0);">&lt;/React.Fragment&gt;</span>. This method is particularly useful when rendering a list of elements or when the DOM structure must be kept minimal.</p><p><br></p><p><strong style="color: rgb(255, 255, 0);">2.</strong><strong> Using </strong><strong style="color: rgb(255, 153, 0);">&lt;React.Fragment&gt;</strong></p><p>If you need to pass keys or other attributes, you’ll have to use the <span style="color: rgb(255, 153, 0);">&lt;React.Fragment&gt;</span> tag explicitly.</p><p><br></p><p>Example:</p><pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ListItem</span>(<span class="hljs-params">{ items }</span>) </span>{
+&nbsp; <span class="hljs-keyword">return</span> items.map(<span class="hljs-function">(<span class="hljs-params">item, index</span>) =&gt;</span> (
+&nbsp; &nbsp; <span class="hljs-tag">&lt;<span class="hljs-name">React.Fragment</span> <span class="hljs-attr">key</span>=<span class="hljs-string">{index}</span>&gt;</span>
+&nbsp; &nbsp; &nbsp; <span class="hljs-tag">&lt;<span class="hljs-name">dt</span>&gt;</span>{item.term}<span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span>
+&nbsp; &nbsp; &nbsp; <span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span>{item.description}<span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span>
+&nbsp; &nbsp; <span class="hljs-tag">&lt;/<span class="hljs-name">React.Fragment</span>&gt;</span>
+&nbsp; ));
+}
+</pre><p><br></p><p>This example demonstrates the use of <span style="color: rgb(255, 153, 0);">&lt;React.Fragment&gt;</span> for wrapping each item in a list with a <span style="color: rgb(250, 204, 204);">key</span> property, which is essential for performance optimisations in lists.</p><p><br></p><p><strong style="color: rgb(255, 255, 0);">3.</strong><strong> Returning an Array of Elements</strong></p><p>You can return an array of elements from a component by including them in an array and separating them with commas.</p><p><br></p><p>Example:</p><pre class="ql-syntax" spellcheck="false">import React from <span class="hljs-string">'react'</span>;
+
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">App</span><span class="hljs-params">()</span> </span>{
+&nbsp; <span class="hljs-keyword">return</span> [
+&nbsp; &nbsp; &lt;h1 key=<span class="hljs-string">"1"</span>&gt;Hello, world!&lt;/h1&gt;,
+&nbsp; &nbsp; &lt;p key=<span class="hljs-string">"2"</span>&gt;Welcome to my app.&lt;/p&gt;
+&nbsp; ];
+}
+</pre><p><br></p><p>When using this method, it is crucial to remember that each element in the array must have a unique <span style="color: rgb(250, 204, 204);">key</span> prop to help React identify which items have changed, are added, or are removed.</p><p><br></p><p><strong style="color: rgb(255, 255, 0);">4.</strong><strong> Using Higher-order Components (HOCs)</strong></p><p>For more complex scenarios, where you might want to abstract or manipulate props or state across multiple components, using a Higher-order Component (HOC) can be appropriate.</p><p><br></p><p>Example:</p><pre class="ql-syntax" spellcheck="false">import React from <span class="hljs-string">'react'</span>;
+
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">withGreeting</span><span class="hljs-params">(WrappedComponent)</span> </span>{
+&nbsp; <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">WrappedWithGreeting</span><span class="hljs-params">(props)</span> </span>{
+&nbsp; &nbsp; <span class="hljs-keyword">return</span> (
+&nbsp; &nbsp; &nbsp; &lt;&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;h1&gt;Welcome!&lt;/h1&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;WrappedComponent {...props} /&gt;
+&nbsp; &nbsp; &nbsp; &lt;/&gt;
+&nbsp; &nbsp; );
+&nbsp; };
+}
+
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">UserProfile</span><span class="hljs-params">({ name })</span> </span>{
+&nbsp; <span class="hljs-keyword">return</span> &lt;p&gt;Profile: {name}&lt;/p&gt;;
+}
+
+
+<span class="hljs-keyword">const</span> EnhancedProfile = withGreeting(UserProfile);
+
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">App</span><span class="hljs-params">()</span> </span>{
+&nbsp; <span class="hljs-keyword">return</span> &lt;EnhancedProfile name=<span class="hljs-string">"John Doe"</span> /&gt;;
+}
+</pre><p><br></p><p>This example shows how an HOC can be used to wrap another component and add additional elements both before and after the wrapped component.</p><p><br></p><p><strong style="color: rgb(255, 255, 0);">5.</strong><strong> Using Conditional Rendering</strong></p><p><br></p><p>Often, you might want to render elements conditionally. Here's how you can incorporate conditional logic with multiple elements in JSX.</p><p><br></p><p>Example:</p><pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">App</span>(<span class="hljs-params">{ isLoggedIn }</span>) </span>{
+&nbsp; <span class="hljs-keyword">return</span> (
+&nbsp; &nbsp; <span class="hljs-tag">&lt;&gt;</span>
+&nbsp; &nbsp; &nbsp; <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Welcome to the app!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+&nbsp; &nbsp; &nbsp; {isLoggedIn ? (
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="hljs-tag">&lt;<span class="hljs-name">UserProfile</span> /&gt;</span>
+&nbsp; &nbsp; &nbsp; ) : (
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="hljs-tag">&lt;<span class="hljs-name">Login</span> /&gt;</span>
+&nbsp; &nbsp; &nbsp; )}
+&nbsp; &nbsp; <span class="hljs-tag">&lt;/&gt;</span>
+&nbsp; );
+}
+</pre><p><br></p><p>This above snippet demonstrates how to conditionally render different components based on the <span style="color: rgb(250, 204, 204);">isLoggedIn</span> state.</p></article>
+
+        <section class="navigation">
+                                        <a class="paginator article-nav-footer" href="how-to-create-cross-platform-executable-in-python.html">
+                    <span>How to Create Cross Platform Executable in Python</span>
+                    <img src="images/next.svg"/>
+                </a>
+                    </section>
+
+    </div>
+
+    <script src="js/app.js" async></script>
+
+    
+        <footer class="site-footer">
+  <h4>All thoughts and posts are my own!</h4>
+  <p>
+  Feel free to <a href="page/about.html">contact</a> or tweet me <a target="_blank" href=https://twitter.com/@rakibtg>@rakibtg</a> me! &sdot; 
+          <a href="login.html">Login</a>
+    </p>
+  <p><span class="copy-icon">&copy;</span> 2024 - rakibtg.com all rights reserved.</p>
+</footer>    
+</body>
+
+</html>
